@@ -113,25 +113,6 @@ LOGIN_REDIRECT_URL = 'home'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 
-
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-
-# Host for sending e-mail.
-EMAIL_HOST = 'smtp.timeweb.ru'
-
-# Port for sending e-mail.
-EMAIL_PORT = 465
-
-# Optional SMTP authentication information for EMAIL_HOST.
-EMAIL_HOST_USER = 'adnan@cq66988-opencart-q8g02.tw1.ru'
-EMAIL_HOST_PASSWORD = 'adnan1234'
-EMAIL_USE_TLS = False
-EMAIL_USE_SSL = True
-
-DEFAULT_FROM_EMAIL = 'adnan@cq66988-opencart-q8g02.tw1.ru'
-SERVER_EMAIL = 'adnan@cq66988-opencart-q8g02.tw1.ru'
-
-
 STATIC_URL = '/static_root/'
 
 STATICFILES_DIRS = [
