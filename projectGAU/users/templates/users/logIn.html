@@ -33,14 +33,21 @@
 <body>
 
 <div class="row">
-    {% if messages %}
-                {% for mess in messages %}
-                    <div class="warnings alert-{{ mess.tags }} d-flex justify-content-center align-items-center">
-                        {{ mess }}
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">
+        {% if messages %}
+            {% for mess in messages %}
+                <div class="warnings alert-{{ mess.tags }} d-flex justify-content-center align-items-center">
+                    {{ mess }}
 
-                    </div>
-                {% endfor %}
-            {% endif %}
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+    <div class="col-lg-3"></div>
+
+</div>
+<div class="row">
     <div class="col-lg-3">
     </div>
     <div class="col-lg-6">
@@ -49,10 +56,11 @@
             <div class="m-sm-5">
                 <form method="post">
                     {% csrf_token %}
+                    <p class="text-center">If you are student/teacher use your email instead username.</p>
                     {{ form| crispy }}
                     <div class="">
                         <button class="btn btn-success me-md-2" type="submit">Enter</button>
-                        <a class="btn btn-danger" href="">Register</a>
+                        <a class="btn btn-danger" href="{% url 'registration' %}">Register</a>
                     </div>
                 </form>
             </div>

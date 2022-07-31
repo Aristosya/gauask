@@ -6,6 +6,8 @@ from django.contrib.auth.models import User
 from django.core.mail import EmailMessage
 from .models import Question
 from users.models import Profile
+import smtplib
+from email.message import EmailMessage
 
 
 def homePage(request):
@@ -42,6 +44,30 @@ def createQuestion(request, teacher):
 @login_required
 def createTeacher(request):
     if request.user.is_staff:
+        if request.method == 'POST':
+            first_name = request.POST['name']
+            last_name = request.POST['surname']
+            email = request.POST['email']
+            try:
+                msg = EmailMessage()
+                msg['Subject'] = 'GauAsk Password'
+                msg['From'] = 'admin@gauask.com'
+                msg['To'] = email
+                msg.set_content('Your password is TeacherGauAsk2022*')
+                server = smtplib.SMTP_SSL('smtp-muhammed123123.alwaysdata.net', 465)
+                server.login('admin@gauask.com', 'GL>32yAV')
+                server.send_message(msg)
+                server.quit()
+                # create a user with email and password that we generate
+                User.objects.create_user(username=email, password='TeacherGauAsk2022*', email=email, first_name=first_name,
+                                         last_name=last_name)
+                newuser = User.objects.filter(username=email).first()
+                newuser.profile.teacher = True
+                newuser.save()
+                # ok massage for home page
+                messages.success(request, f'Password has been sent to email')
+            except:
+                pass
         return render(request, 'application/create_teacher.html')
     return redirect('home')
 
