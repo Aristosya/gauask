@@ -34,6 +34,8 @@ def createQuestion(request, teacher):
             title = request.POST['title']
             question = request.POST['question']
             Question.objects.create(title=title, student=request.user, question=question, teacher=teacher, answer='')
+            messages.success(request, "Question created successfully")
+            return redirect('questions')
         settings = {
             'teacher': teacher,
         }

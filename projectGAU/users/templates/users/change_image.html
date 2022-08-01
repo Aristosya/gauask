@@ -23,141 +23,204 @@
           href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.css"
           integrity="sha512-bYPO5jmStZ9WI2602V2zaivdAnbAhtfzmxnEGh9RwtlI00I9s8ulGe4oBa5XxiC6tCITJH/QG70jswBhbLkxPw=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
-    <script src="https://kit.fontawesome.com/4968fb9aa5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
     <link rel="stylesheet" href="{% static 'application/style/base.css' %}">
     <link rel="stylesheet" href="{% static 'application/style/form.css' %}">
     <link rel="icon" type="image/x-icon" href="../../../pictures/favicon.ico">
     <title>Change Image</title>
     <link rel="stylesheet" href="{% static 'users/style/profile.css' %}">
+
+    <style>
+        .header-link:hover {
+            opacity: 0.6;
+            transition: all 0.2s ease;
+        }
+    </style>
 </head>
 <body>
 
 {% if user.is_staff %}
 
-<div class="row" style="height:100vh; margin: 0!important;">
-    <div class="d-flex flex-column flex-shrink-0 p-3 bg-light col-3" style="width: 280px;">
-        <ul class="nav nav-pills flex-column mb-auto">
-            <li class="nav-item">
-                <a href="{% url 'home' %}" class="nav-link link-dark" aria-current="page">
-                    Home
-                </a>
-            </li>
-            <li>
-                <a href="{% url 'changeImage' %}" class="nav-link  active">
-                    Change Image
-                </a>
-            </li>
-            <li>
-                <a href="{% url 'changePassword' %}" class="nav-link link-dark">
-                    Change Password
-                </a>
-            </li>
-        {% if user.is_staff %}
-            <li>
-                <a href="{% url 'createTeacher' %}" class="nav-link link-dark">
-                    Create teacher
-                </a>
-            </li>
-        {% endif %}
-            {% if user.is_authenticated %}
-            <li>
-                <div class="dropdown nav-link link-dark">
-                    <a href="" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle"
-                       data-bs-toggle="dropdown" aria-expanded="false">
-                        <strong>Account</strong>
-                    </a>
-                    <ul class="dropdown-menu text-small shadow">
-                        <li><a class="dropdown-item" href="{% url  'logOut' %}">Sign out</a></li>
-                    </ul>
-                </div>
-            </li>
-            {% endif %}
-        </ul>
+<header>
+    <div class="px-3 py-2 bg-dark">
+        <div class="container d-flex justify-content-between align-items-center" style="">
+            <div class="div">
+                <img src="https://www.gau.edu.tr/storage//uploads/0/0/0/logotr-1580914525.png?vs=1" alt="gau-logo"
+                     style="width: 190px;">
+            </div>
+            <div class="div">
+                <ul class="nav col-12 col-lg-auto my-2 justify-content-end my-md-0 text-small">
+                    <li>
+                        <a href="{% url 'home' %}" class="nav-link header-link text-white">
+                            <div class="d-flex align-items-center flex-column">
+                                <div class=""><i class="fa-solid fa-house fa-xl"></i></i></div>
+                                <div class="mt-1">Home</div>
+                            </div>
+
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'changeImage' %}" class="nav-link header-link text-white">
+                            <div class="d-flex align-items-center flex-column">
+                                <div class=""><i class="fa-solid fa-user-tie fa-xl"></i></div>
+                                <div class="mt-1">Avatar</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'createTeacher' %}" class="nav-link header-link text-white">
+                            <div class="d-flex align-items-center flex-column">
+                                <div class=""><i class="fa-solid fa-circle-plus fa-xl"></i></i></div>
+                                <div class="mt-1">Lecturer</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'changePassword' %}" class="nav-link header-link text-white">
+                            <div class="d-flex align-items-center flex-column">
+                                <div class=""><i class="fa-solid fa-shield fa-xl"></i></div>
+                                <div class="mt-1">Security</div>
+                            </div>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
     </div>
+    <div class="px-3 py-2 border-bottom mb-2">
+        <div class="row" style="">
+            <div class="col-sm-5">
+            </div>
+            <div class="col-lg-7 d-flex justify-content-between">
+                <h1 style="margin: 0;">GAUASK</h1>
+                <div class="div">
 
 
+                    {% if user.is_authenticated %}
+                    <a href="{% url  'logOut' %}" class="btn btn-primary me-2">Sign out</a>
+                    {% else %}
+                    <a href="{% url 'logIn' %}" class="btn btn-primary">Sign in</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
 
 
 {# next if student#}
 
 
-
-
-
 {% else %}
-<div class="row" style="height:100vh">
-    <div class="d-flex flex-column flex-shrink-0 p-3 bg-light col-3" style="width: 280px;">
-        <ul class="nav nav-pills flex-column mb-auto">
-            <li class="nav-item">
-                <a href="{% url 'home' %}" class="nav-link link-dark" aria-current="page">
-                    Home
-                </a>
-            </li>
-            <li>
-                <a href="{% url 'questions' %}" class="nav-link link-dark">
-                    My Questions
-                </a>
-            </li>
-            <li>
-                <a href="{% url 'changeImage' %}" class="nav-link active">
-                    Change Image
-                </a>
-            </li>
-            <li>
-                <a href="{% url 'changePassword' %}" class="nav-link link-dark">
-                    Change Password
-                </a>
-            </li>
-            <li>
-                <div class="dropdown nav-link link-dark">
-                    <a href="" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle"
-                       data-bs-toggle="dropdown" aria-expanded="false">
-                        <strong>Account</strong>
-                    </a>
-                    <ul class="dropdown-menu text-small shadow">
-                        <li><a class="dropdown-item" href="{% url  'logOut' %}">Sign out</a></li>
-                    </ul>
-                </div>
-            </li>
-        </ul>
+<header>
+    <div class="px-3 py-2 bg-dark">
+        <div class="container d-flex justify-content-between align-items-center" style="">
+            <div class="div">
+                <img src="https://www.gau.edu.tr/storage//uploads/0/0/0/logotr-1580914525.png?vs=1" alt="gau-logo"
+                     style="width: 190px;">
+            </div>
+            <div class="div">
+                <ul class="nav col-12 col-lg-auto my-2 justify-content-end my-md-0 text-small">
+                    <li>
+                        <a href="{% url 'home' %}" class="nav-link header-link text-white">
+                            <div class="d-flex align-items-center flex-column">
+                                <div class=""><i class="fa-solid fa-house fa-xl"></i></i></div>
+                                <div class="mt-1">Home</div>
+                            </div>
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'questions' %}" class="nav-link header-link text-white">
+                            <div class="d-flex align-items-center flex-column">
+                                <div class=""><i class="fa-solid fa-circle-question fa-xl"></i></div>
+                                <div class="mt-1">Questions</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'changeImage' %}" class="nav-link header-link text-white">
+                            <div class="d-flex align-items-center flex-column">
+                                <div class=""><i class="fa-solid fa-user-tie fa-xl"></i></div>
+                                <div class="mt-1">Avatar</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'changePassword' %}" class="nav-link header-link text-white">
+                            <div class="d-flex align-items-center flex-column">
+                                <div class=""><i class="fa-solid fa-shield fa-xl"></i></div>
+                                <div class="mt-1">Security</div>
+                            </div>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
     </div>
+    <div class="px-3 py-2 border-bottom mb-2">
+        <div class="row" style="">
+            <div class="col-sm-5">
+            </div>
+            <div class="col-lg-7 d-flex justify-content-between">
+                <h1 style="margin: 0;">GAUASK</h1>
+                <div class="div">
+
+
+                    {% if user.is_authenticated %}
+                    <a href="{% url  'logOut' %}" class="btn btn-primary me-2">Sign out</a>
+                    {% else %}
+                    <a href="{% url 'logIn' %}" class="btn btn-primary">Sign in</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
 {% endif %}
 
-    <main class="mt-3 col-9" style="width: 100%;">
+<main class="pt-3" style="width: 100%; height: 100vh;
+    background-image: url('https://lh3.googleusercontent.com/1mrw3hGAAjNfnaAC6Yo8hr8V4t-1Y7cajch8_EIEWs6-VvHRZPIgpmoz60B6mZW7lz3T1HEVGsOL0-2qRva97-0HlKDJ7NvHif4NtSWaUFoou6989vp-EAxfPRTmkJVoN_vYyRNqV_hWzTSCx8vA_1HesR1uBWNhbsx4cF1mn5eVKg9nis9ZVLKn3Zi1yTYl9b_Xeb17o8Huo50X_dfmwXJpcg91tGu2pSBRXFgm8A7lhjAXME-81a-W4MhT1VJmxnmZe1iv6I5IaLsUWxpOFPNJ7c_I-42XfpsfNjjzhFHefy3m3v_BUEnrVAmLaEGdz8FM-xdrgEVuervkIqIqy14rcWn6_uNpUB90kZ2VaXB3-URAPMmilUgoeVUhqedZdxjtwOd6hcvrojkIGmB3ZfHnBro2VYY_Q1vLhPGdnoIX6hAjrEH8Br7qim4RwNeUBk6C60J8l5OP8tlABxsQ_nBj1nG7NwSIObj56UxUuLFUjiqUWCKxuVs6rZAMdkCWl93qkr6Im8BB_c-bXbSVyq241uhdPfygnrDBEqda4hHT5dgrlUlMjDC29Pp0mc7zBcRp_vmEz32Ec_woPr4IdRXQXfXQ_7w6V0xtTBoBXI-_RFBGFkcGh2DAQjchkBW_v-V6zUO9pPnUCdplF8y3m4gYNvB-7qSsE87O3TBDwZ9TQ012lR1pElGWqzjH98zm2y0-d6r3WNPQA1dtt216ft--TndYBKY1k18iZyVZUrpf5N-vL3zXHrMm7lZ1rqqn9XizX8ptLVbuXy2wMgANTbIYGPOJvyll83MHGO83HNTg40cG3z9hw0IGID6vbkPTjXTVi8x9tQt2jCydpCbExns-Y8ZWl54xWUsXatg=w452-h461-no?authuser=1');
+    background-blend-mode: multiply;">
 
-        <div class="content">
-            {% if messages %}
-                {% for mess in messages %}
-                    <div class="warnings alert-{{ mess.tags }} d-flex justify-content-center align-items-center">
-                        {{ mess }}
-
-                    </div>
-                {% endfor %}
-            {% endif %}
-
-            <div class="container mt-5">
-                <div class="form-section">
-                    <h2 class="text-center">Change Image</h2>
-                    <div class="media text-muted pt-3">
-                        <img class="mr-2 circle mx-auto d-block" style='width: 200px; height: 200px;  object-fit: cover;
-    object-position: center;' src="{{ user.profile.img.url }}">
-                        </p>
-                    </div>
-                    <form method="POST" enctype="multipart/form-data" class="mt-4">
-                        {% csrf_token %}
-                        <div class="d-flex flex-column flex-center justify-content-center align-items-center">
-                            <input type="file" name="main_photo" class="mb-3" style="width: 100px" accept="image/*" required>
-                            <button type="submit" class="btn btn-outline-warning upd-button">Update</button>
-                        </div>
-
-                    </form>
-                </div>
-                <hr>
-            </div>
-
+    <div class="content">
+        {% if messages %}
+        {% for mess in messages %}
+        <div class="warnings alert-{{ mess.tags }} d-flex justify-content-center align-items-center">
+            {{ mess }}
 
         </div>
-    </main>
+        {% endfor %}
+        {% endif %}
+
+        <div class="container mt-5">
+            <div class="form-section">
+                <h2 class="text-center">Change Image</h2>
+                <div class="media text-muted pt-3">
+
+                    <img class="mr-2 circle mx-auto d-block" style='width: 200px; height: 200px;  object-fit: cover;
+    object-position: center;' src="{{ user.profile.img.url }}">
+                    </p>
+                </div>
+                <form method="POST" enctype="multipart/form-data" class="mt-4">
+                    {% csrf_token %}
+                    <div class="d-flex flex-column flex-center justify-content-center align-items-center">
+                        <input type="file" name="main_photo" class="mb-3" style="width: 100px" accept="image/*"
+                               required>
+                        <button type="submit" class="btn btn-warning upd-button">Update</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+</main>
 
 </div>
 
