@@ -26,6 +26,12 @@ def homePage(request):
     return render(request, 'application/home.html',settings)
 
 
+
+
+def aboutPage(request):
+    return render(request, 'application/about.html')
+
+
 @login_required
 def createQuestion(request, teacher):
     teacher = get_object_or_404(User, id=teacher)

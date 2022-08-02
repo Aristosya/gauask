@@ -52,6 +52,9 @@
 
 <body>
 
+<div style="min-height: 84vh;
+    background-image: url('https://lh3.googleusercontent.com/1mrw3hGAAjNfnaAC6Yo8hr8V4t-1Y7cajch8_EIEWs6-VvHRZPIgpmoz60B6mZW7lz3T1HEVGsOL0-2qRva97-0HlKDJ7NvHif4NtSWaUFoou6989vp-EAxfPRTmkJVoN_vYyRNqV_hWzTSCx8vA_1HesR1uBWNhbsx4cF1mn5eVKg9nis9ZVLKn3Zi1yTYl9b_Xeb17o8Huo50X_dfmwXJpcg91tGu2pSBRXFgm8A7lhjAXME-81a-W4MhT1VJmxnmZe1iv6I5IaLsUWxpOFPNJ7c_I-42XfpsfNjjzhFHefy3m3v_BUEnrVAmLaEGdz8FM-xdrgEVuervkIqIqy14rcWn6_uNpUB90kZ2VaXB3-URAPMmilUgoeVUhqedZdxjtwOd6hcvrojkIGmB3ZfHnBro2VYY_Q1vLhPGdnoIX6hAjrEH8Br7qim4RwNeUBk6C60J8l5OP8tlABxsQ_nBj1nG7NwSIObj56UxUuLFUjiqUWCKxuVs6rZAMdkCWl93qkr6Im8BB_c-bXbSVyq241uhdPfygnrDBEqda4hHT5dgrlUlMjDC29Pp0mc7zBcRp_vmEz32Ec_woPr4IdRXQXfXQ_7w6V0xtTBoBXI-_RFBGFkcGh2DAQjchkBW_v-V6zUO9pPnUCdplF8y3m4gYNvB-7qSsE87O3TBDwZ9TQ012lR1pElGWqzjH98zm2y0-d6r3WNPQA1dtt216ft--TndYBKY1k18iZyVZUrpf5N-vL3zXHrMm7lZ1rqqn9XizX8ptLVbuXy2wMgANTbIYGPOJvyll83MHGO83HNTg40cG3z9hw0IGID6vbkPTjXTVi8x9tQt2jCydpCbExns-Y8ZWl54xWUsXatg=w452-h461-no?authuser=1');
+    background-blend-mode: multiply;">
 <main class="mt-2 container" style="width: 100%;">
     {% if messages %}
                 {% for mess in messages %}
@@ -83,10 +86,19 @@
             </div>
         </div>
     </div>
-
 </main>
-
 </div>
+<nav class="bottom navbar-expand-sm navbar-dark bg-dark" style="padding: 0.5rem 1rem;">
+  <div class="d-flex justify-content-between align-items-center">
+    <a class="navbar-brand" href="#"><i class="fas fa-arrow-circle-up"></i></a>
+      <a href="{% url 'home' %}"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Gau-logo.png" alt="" style="height: 80px; width: 80px;"></a>
+    <div class="d-flex flex-column align-items-end">
+        <p class="text-end align-self-end" style="color: white; font-size: 13px; font-weight: bold; margin-bottom: 0;"><b>Made by: Mohamed Ali F Msoud <i class="fas fa-copyright"></i></b></p>
+        <p style="color: white; font-size:13px">№ 191701069</p>
+    </div>
+  </div>
+</nav>
+
 
 <script src="{% static 'forum/script/base.js' %}"></script>
 </body>
