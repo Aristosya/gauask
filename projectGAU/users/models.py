@@ -8,6 +8,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     img = models.ImageField(default='default.png', upload_to='images')
     teacher = models.BooleanField(default=False,)
+    description = models.TextField(default='', max_length=255,)
 
 
     def __str__(self):

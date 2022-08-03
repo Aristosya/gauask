@@ -1,7 +1,7 @@
 {% load static %}
 {% load crispy_forms_tags %}
 <!doctype html>
-<html lang="en" style="min-height: 160vh">
+<html lang="en" style="min-height: 180vh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -46,12 +46,12 @@
     <div class="px-3 py-2 bg-dark">
         <div class="container d-flex justify-content-between align-items-center" style="">
             <div class="div">
-                <img src="https://www.gau.edu.tr/storage//uploads/0/0/0/logotr-1580914525.png?vs=1" alt="gau-logo"
-                     style="width: 190px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Gau-logo.png" alt="gau-logo"
+                     style="width: 130px;">
             </div>
             <div class="div">
                 <ul class="nav col-12 col-lg-auto my-2 justify-content-end my-md-0 text-small">
-                    <li>
+                    <li style="width: 100px; height:70px;">
                         <a href="{% url 'home' %}" class="nav-link header-link text-white">
                             <div class="d-flex align-items-center flex-column">
                                 <div class=""><i class="fa-solid fa-house fa-xl"></i></i></div>
@@ -60,7 +60,7 @@
 
                         </a>
                     </li>
-                    <li>
+                    <li style="width: 100px; height:70px;">
                         <a href="{% url 'questions' %}" class="nav-link header-link text-white">
                             <div class="d-flex align-items-center flex-column">
                                 <div class=""><i class="fa-solid fa-circle-question fa-xl"></i></div>
@@ -68,7 +68,7 @@
                             </div>
                         </a>
                     </li>
-                    <li>
+                    <li style="width: 100px; height:70px;">
                         <a href="{% url 'changeImage' %}" class="nav-link header-link text-white">
                             <div class="d-flex align-items-center flex-column">
                                 <div class=""><i class="fa-solid fa-user-tie fa-xl"></i></div>
@@ -76,7 +76,7 @@
                             </div>
                         </a>
                     </li>
-                    <li>
+                    <li style="width: 100px; height:70px;">
                         <a href="{% url 'changePassword' %}" class="nav-link header-link text-white">
                             <div class="d-flex align-items-center flex-column">
                                 <div class=""><i class="fa-solid fa-shield fa-xl"></i></div>
@@ -84,7 +84,7 @@
                             </div>
                         </a>
                     </li>
-                    <li>
+                    <li style="width: 100px; height:70px;">
                         <a href="{% url 'aboutPage' %}" class="nav-link header-link text-white">
                             <div class="d-flex align-items-center flex-column">
                                 <div class=""><i class="fas fa-address-card fa-xl"></i></div>
@@ -147,8 +147,9 @@
                     <div class="row" style="padding: 12px 10px 20px 20px">
                         <div class="col-lg-9">
                             <h5 class="text-secondary">{{ teacher.user.first_name }} {{ teacher.user.last_name }}</h5>
+                            <h6>{{ teacher.description }}</h6>
                             <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group mt-5">
+                                <div class="btn-group mt-2">
                                     <a href="{% url 'createQuestion' teacher.user.id %}"
                                        class="btn btn btn-outline-secondary">Ask</a>
                                 </div>
@@ -171,7 +172,7 @@
 
   <div class="d-flex justify-content-between align-items-center">
     <a class="navbar-brand" href="#"><i class="fas fa-arrow-circle-up"></i></a>
-      <a href="{% url 'home' %}"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Gau-logo.png" alt="" style="height: 80px; width: 80px;margin-left: 168px"></a>
+      <a href="{% url 'home' %}"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Gau-logo.png" alt="" style="height: 80px; width: 80px;" class="ml-sm-5"></a>
     <div class="d-flex flex-column align-items-end">
         <p class="text-end align-self-end" style="color: white; font-size: 13px; font-weight: bold; margin-bottom: 0;"><b>Made by: Mohamed Ali F Msoud <i class="fas fa-copyright"></i></b></p>
         <p style="color: white; font-size:13px">№ 191701069</p>
